@@ -357,7 +357,8 @@
       h2 { font-size: 30px; }
       h3 { font-size: 20px; }
       .section { padding-block: 64px; }
-      .section--decorated { padding-top: 132px; }
+      .section--decorated { padding-top: 232px; }
+      .section--decorated::before { width: min(1000px, 100%); height: 220px; }
       .inner { padding-inline: 40px; }
       .hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 56px; }
       .hero__visual { margin: 0; }
@@ -376,8 +377,9 @@
       .count-stage { top: 16px; margin-inline: 0; background: transparent; }
       .count-picture { border: 2px solid var(--ink); }
       .count-zoom { margin-inline: 0; }
-      .steps li { grid-template-columns: minmax(0, 1fr) 120px; }
-      .step-photo { width: 120px; height: 100px; }
+      .paper-card--steps { margin-inline: 0; padding: 24px; }
+      .steps li { grid-template-columns: 200px minmax(0, 1fr); gap: 16px 20px; }
+      .step-photo { width: 200px; height: 170px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
