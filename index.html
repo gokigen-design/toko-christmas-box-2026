@@ -363,7 +363,9 @@
       .hero__visual { margin: 0; }
       .hero__copy { margin-inline: 0; }
       .choose-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .choose-card { display: block; padding: 0 20px 16px; }
+      .choose-card { display: flex; flex-direction: column; padding: 0 20px 16px; }
+      .choose-card__body { display: flex; flex: 1; flex-direction: column; }
+      .choose-card__go { margin-top: auto; }
       .choose-card__art { margin-bottom: 6px; transform: none; }
       .recipe-layout { grid-template-columns: .8fr 1.2fr; align-items: start; }
       .movie-box { grid-template-columns: 1.1fr .9fr; align-items: center; }
