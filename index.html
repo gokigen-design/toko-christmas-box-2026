@@ -15,6 +15,7 @@
       --cream: #fffdf7;
       --ink: #353a32;
       --green: #315b48;
+      --navy: #28344f;
       --green-pale: #dfe9da;
       --red: #9e3e37;
       --red-pale: #edd8d0;
@@ -53,10 +54,22 @@
     h3 { margin-bottom: 12px; font-size: 18px; }
     ul, ol { margin-top: 0; }
     .inner { width: min(100%, 960px); margin: 0 auto; padding-inline: 24px; }
-    .section { padding-block: 48px; }
+    .section { position: relative; padding-block: 48px; }
     .section--cream { background: var(--cream); }
     .section--green { background: #edf1e7; }
     .section--red { background: #f4e8df; }
+    .section--decorated { overflow: hidden; padding-top: 112px; }
+    .section--decorated::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: min(1100px, 118%);
+      height: 112px;
+      background: url("assets/chappy/christmas-watercolor-border.webp") center 49% / contain no-repeat;
+      content: "";
+      pointer-events: none;
+      transform: translateX(-50%);
+    }
     .section-title { position: relative; padding-bottom: 20px; }
     .section-title::after {
       position: absolute;
@@ -109,9 +122,20 @@
       background:
         radial-gradient(circle at 12% 14%, rgb(158 62 55 / 16%) 0 9%, transparent 23%),
         radial-gradient(circle at 86% 78%, rgb(49 91 72 / 14%) 0 12%, transparent 27%),
-        var(--paper);
+        linear-gradient(180deg, #fbf7ed 0%, #f8eddc 100%);
     }
-    .hero__inner { position: relative; padding-block: 56px 48px; }
+    .hero::after {
+      position: absolute;
+      right: 0;
+      bottom: -12px;
+      left: 0;
+      height: 128px;
+      background: url("assets/chappy/christmas-watercolor-border.webp") center bottom / min(1100px, 120%) auto no-repeat;
+      content: "";
+      opacity: .9;
+      pointer-events: none;
+    }
+    .hero__inner { position: relative; z-index: 1; padding-block: 56px 144px; }
     .hero__copy { max-width: 610px; }
     .hero__title-small { display: block; margin-bottom: 4px; color: var(--red); font-size: 18px; }
     .hero__lead { max-width: 560px; margin-bottom: 28px; }
@@ -142,9 +166,9 @@
       background: var(--cream);
       text-decoration: none;
     }
-    .choose-card:nth-child(1) { border-top: 10px solid var(--red); }
-    .choose-card:nth-child(2) { border-top: 10px solid var(--green); }
-    .choose-card:nth-child(3) { border-top: 10px solid var(--mustard); }
+    .choose-card:nth-child(1) { border-top: 10px solid var(--red); background: #fff8f3; }
+    .choose-card:nth-child(2) { border-top: 10px solid var(--green); background: #f4f8f1; }
+    .choose-card:nth-child(3) { border-top: 10px solid var(--navy); background: #f2f3f7; }
     .choose-card__number { display: block; margin-bottom: 10px; color: var(--red); font-family: "Caveat", cursive; font-size: 25px; line-height: 1; }
     .choose-card p { margin-bottom: 0; }
     .choose-card__line { width: 58px; height: 2px; margin-block: 16px; background: var(--line); transform: rotate(-2deg); }
@@ -240,6 +264,10 @@
       background: var(--cream);
       text-align: center;
     }
+    .word-card:nth-child(4n + 1) { border-top: 9px solid var(--red); background: #fff8f3; }
+    .word-card:nth-child(4n + 2) { border-top: 9px solid var(--mustard); background: #fffaf0; }
+    .word-card:nth-child(4n + 3) { border-top: 9px solid var(--green); background: #f3f7ef; }
+    .word-card:nth-child(4n + 4) { border-top: 9px solid var(--navy); background: #f1f2f6; }
     .word-card__picture {
       position: relative;
       width: 100px;
@@ -289,7 +317,6 @@
     .print-area { text-align: center; }
     .print-area p { max-width: 620px; margin-inline: auto; }
     .print-area .btn { width: min(100%, 480px); margin-top: 12px; }
-    .placeholder-note { margin-top: 24px; padding: 16px; border: 1px dashed var(--line); background: rgb(255 253 247 / 65%); text-align: left; }
     .footer { padding-block: 36px; color: var(--cream); background: var(--green); text-align: center; }
     .footer p { margin: 0; font-size: 14px; }
     :focus-visible { outline: 3px solid var(--mustard); outline-offset: 4px; }
@@ -301,7 +328,7 @@
       h3 { font-size: 20px; }
       .section { padding-block: 64px; }
       .inner { padding-inline: 40px; }
-      .hero__inner { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; padding-block: 72px 64px; }
+      .hero__inner { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; padding-block: 72px 152px; }
       .hero__art { width: 300px; height: 224px; margin: 0; }
       .choose-grid { grid-template-columns: repeat(3, 1fr); }
       .recipe-layout { grid-template-columns: .8fr 1.2fr; align-items: start; }
@@ -349,7 +376,7 @@
     <section class="section section--cream" id="choose">
       <div class="inner">
         <p class="eyebrow">Three little gifts</p>
-        <h2 class="section-title">今日は、どれを1つ開けよう</h2>
+        <h2 class="section-title">今日はどれを1つ開けよう</h2>
         <p class="choose-intro">全部やらなくても大丈夫です。お子さんが気になった扉から、ちょっとだけ開けてみてください。</p>
         <div class="choose-grid">
           <a class="choose-card" href="#make">
@@ -385,12 +412,12 @@
           <strong>おうちの方へ</strong>
           <span>電子レンジ、温めたチョコ、竹串を使います。必ず大人といっしょにつくってください。材料の原材料表示も事前にご確認ください。</span>
         </div>
-        <div class="movie-box" aria-label="クッキング動画の掲載予定エリア">
+        <div class="movie-box" aria-label="クッキング動画">
           <div class="movie-visual" aria-hidden="true"></div>
           <div class="movie-copy">
-            <h3>クッキングの様子を動画で見る</h3>
-            <p>作り方と、親子で使える英語の声かけを動画で確認できる予定です。</p>
-            <p class="movie-status">動画の共有後に再生ボタンへ差し替えます。</p>
+            <h3>クッキング動画は準備中です</h3>
+            <p>作り方と、親子で使える英語の声かけをご紹介します。</p>
+            <p class="movie-status">公開まで少しお待ちください。</p>
           </div>
         </div>
         <div class="recipe-layout">
@@ -424,11 +451,11 @@
       </div>
     </section>
 
-    <section class="section section--cream" id="words">
+    <section class="section section--cream section--decorated" id="words">
       <div class="inner">
         <p class="eyebrow">Christmas word cards</p>
-        <h2 class="section-title">絵といっしょに、ことばをおぼえよう</h2>
-        <p>おうちの中で見つけたら、カードと同じ英語を声に出してみてください。ここでは全16語のうち8語を試しに載せています。</p>
+        <h2 class="section-title">絵といっしょに ことばをおぼえよう</h2>
+        <p>おうちの中で見つけたら、カードと同じ英語を声に出してみてください。ここでは16語のうち8語をご紹介。すべての言葉は印刷用PDFで楽しめます。</p>
         <div class="word-grid">
           <div class="word-card"><div class="word-card__picture word-card__picture--santa" role="img" aria-label="サンタクロース"></div><span>Santa Claus</span></div>
           <div class="word-card"><div class="word-card__picture word-card__picture--star" role="img" aria-label="星"></div><span>Star</span></div>
@@ -445,7 +472,7 @@
     <section class="section section--green" id="count">
       <div class="inner">
         <p class="eyebrow">Can you count them?</p>
-        <h2 class="section-title">クリスマスの絵を、いくつ見つけられるかな</h2>
+        <h2 class="section-title">クリスマスの絵を いくつ見つけられるかな</h2>
         <div class="count-demo">
           <div class="count-picture" role="img" aria-label="クリスマスの絵をさがして数えるゲーム"></div>
           <div class="count-note">
@@ -462,10 +489,9 @@
     <section class="section section--red print-area">
       <div class="inner">
         <p class="eyebrow">Print and play</p>
-        <h2>紙に印刷すると、遊びがひろがります</h2>
+        <h2>紙に印刷すると 遊びがひろがります</h2>
         <p>レシピを見ながらつくる。ワードカードを切って遊ぶ。カウントゲームに書き込む。おうちに合う使い方を選んでください。</p>
         <a class="btn" href="https://drive.google.com/file/d/1FIVM52TUryKrjlWNY06_da8K8h5WV_H0/view?usp=sharing" target="_blank" rel="noopener">印刷用PDFを開く</a>
-        <div class="placeholder-note">このたたき台は完成度50％です。写真、手描き素材、水彩素材は、このあと共有いただく素材に差し替えます。</div>
       </div>
     </section>
   </main>
