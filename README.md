@@ -38,3 +38,11 @@
 - `assets/chappy/christmas-watercolor-border.webp`
 - 水彩の松枝、赤い実、星、リボンの透過装飾
 - 参考サイトの素材はコピーせず、このサイト専用に新規生成
+
+## 2026/10/30 スマホ検品で直したところ
+
+- `assets/word-cards/` に英単語8語を元PDFから切り直し（上下左右の欠けをなくし、白い背景を透過）。旧 `word-icons/` は残してある
+- `assets/clean-crops/count-game-trim.webp` と `recipe-photo-trim.webp` はふちの白い帯を落とした版。旧ファイルは残してある
+- 動画準備中の枠は、表紙（赤枠と題字入り）をやめて完成写真に差し替え。動画を受け取ったら `.movie-visual` を動画に置き換える
+- カウントゲームは絵の左右が切れないよう全体を表示。スマホでは横いっぱい
+- 日本語は文節で折る（word-break: auto-phrase）。見出しは意図した位置で改行
