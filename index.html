@@ -161,7 +161,7 @@
       position: relative;
       display: block;
       min-height: 215px;
-      padding: 26px 24px 24px;
+      padding: 0 24px 24px;
       border: 2px solid var(--ink);
       color: inherit;
       background: var(--cream);
@@ -170,6 +170,7 @@
     .choose-card:nth-child(1) { border-top: 10px solid var(--red); background: #fff8f3; }
     .choose-card:nth-child(2) { border-top: 10px solid var(--green); background: #f4f8f1; }
     .choose-card:nth-child(3) { border-top: 10px solid var(--navy); background: #f2f3f7; }
+    .choose-card__art { display: block; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 4 / 3; margin: 0 -24px 6px; object-fit: cover; mix-blend-mode: multiply; }
     .choose-card__number { display: block; margin-bottom: 10px; color: var(--red); font-family: "Caveat", cursive; font-size: 25px; line-height: 1; }
     .choose-card p { margin-bottom: 0; }
     .choose-card__line { width: 58px; height: 2px; margin-block: 16px; background: var(--line); transform: rotate(-2deg); }
@@ -414,18 +415,21 @@
         <p class="choose-intro">全部やらなくても大丈夫です。お子さんが気になった扉から、ちょっとだけ開けてみてください。</p>
         <div class="choose-grid">
           <a class="choose-card" href="#make">
+            <img class="choose-card__art" src="assets/choose-art/card-make.webp" alt="マシュマロとチョコでつくったトナカイと、ボウルやスプーンの絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">01 make</span>
             <h3>トナカイおやつ</h3>
             <div class="choose-card__line"></div>
             <p>マシュマロとチョコで、かわいいトナカイをつくります。</p>
           </a>
           <a class="choose-card" href="#words">
+            <img class="choose-card__art" src="assets/choose-art/card-words.webp" alt="ABCの積み木をサンタさんが指さしている絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">02 learn</span>
             <h3>クリスマス英単語</h3>
             <div class="choose-card__line"></div>
             <p>絵を見ながら、クリスマスのことばを声に出します。</p>
           </a>
           <a class="choose-card" href="#count">
+            <img class="choose-card__art" src="assets/choose-art/card-count.webp" alt="クリスマスの絵の中から、子どもの指が星を見つけている絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">03 play</span>
             <h3>いくつあるかな</h3>
             <div class="choose-card__line"></div>
@@ -481,7 +485,7 @@
             <ol class="steps">
               <li>
                 <p class="step-text">板チョコを手で小さく割って、耐熱ボウルに入れる</p>
-                <img class="step-photo step-photo--contain" src="assets/recipe/step-1.webp" alt="チョコを割っているところ" width="96" height="84" loading="lazy">
+                <img class="step-photo step-photo--contain" src="assets/recipe/step-1.webp" alt="チョコを割っているところ" width="96" height="84">
                 <div class="voice-box">
                   <p>Let’s break the chocolate! Oh, it’s hard. Let me help?</p>
                   <p>チョコを砕いてみよう！固いね！手伝う？</p>
@@ -489,7 +493,7 @@
               </li>
               <li>
                 <p class="step-text">ラップをせずに、500Wの電子レンジで1分半加熱する</p>
-                <img class="step-photo" src="assets/recipe/step-2.webp" alt="電子レンジに入れるところ" width="96" height="84" loading="lazy">
+                <img class="step-photo" src="assets/recipe/step-2.webp" alt="電子レンジに入れるところ" width="96" height="84">
                 <div class="voice-box">
                   <p>Place the bowl in the microwave. Look! What happens?</p>
                   <p>ボウルを電子レンジに入れるよ。見て！何が起きるかな？</p>
@@ -497,7 +501,7 @@
               </li>
               <li>
                 <p class="step-text">スプーンでよく混ぜ、もし溶けていなければ、もう10秒程、加熱する</p>
-                <img class="step-photo step-photo--contain" src="assets/recipe/step-3.webp" alt="溶けたチョコを混ぜるところ" width="96" height="84" loading="lazy">
+                <img class="step-photo step-photo--contain" src="assets/recipe/step-3.webp" alt="溶けたチョコを混ぜるところ" width="96" height="84">
                 <div class="voice-box">
                   <p>Stir it well! Has it melted well enough?</p>
                   <p>よくかき混ぜて〜！しっかり溶けてるかな？</p>
@@ -505,7 +509,7 @@
               </li>
               <li>
                 <p class="step-text">マシュマロを竹串にさして、溶かしたチョコレートをくぐらせる</p>
-                <img class="step-photo step-photo--contain" src="assets/recipe/step-4.webp" alt="マシュマロにチョコをつけるところ" width="96" height="84" loading="lazy">
+                <img class="step-photo step-photo--contain" src="assets/recipe/step-4.webp" alt="マシュマロにチョコをつけるところ" width="96" height="84">
                 <div class="voice-box">
                   <p>Stick a marshmallow on a stick and dip into the chocolate.</p>
                   <p>マシュマロを串にさして、チョコを付けよう！</p>
@@ -513,7 +517,7 @@
               </li>
               <li>
                 <p class="step-text">トナカイの目を白と茶のチョコペンで描く</p>
-                <img class="step-photo" src="assets/recipe/step-5.webp" alt="目を描いたトナカイ" width="96" height="84" loading="lazy">
+                <img class="step-photo" src="assets/recipe/step-5.webp" alt="目を描いたトナカイ" width="96" height="84">
                 <div class="voice-box">
                   <p>Let’s draw the eyes and nose of the reindeer. So cute!</p>
                   <p>トナカイの目を描こうね。かわいい〜！</p>
@@ -521,7 +525,7 @@
               </li>
               <li>
                 <p class="step-text">2本のチョコスティック（小枝・ポッキーなど）を上にさして、角を作る</p>
-                <img class="step-photo" src="assets/recipe/step-6.webp" alt="角をつけたトナカイ" width="96" height="84" loading="lazy">
+                <img class="step-photo" src="assets/recipe/step-6.webp" alt="角をつけたトナカイ" width="96" height="84">
                 <div class="voice-box">
                   <p>Place two sticks for the antlers. These are so cool.</p>
                   <p>トナカイの角を作ろう。かっこいいね〜。</p>
@@ -529,7 +533,7 @@
               </li>
               <li>
                 <p class="step-text">赤いM&amp;Mを鼻の上に置く</p>
-                <img class="step-photo" src="assets/recipe/step-7.webp" alt="赤い鼻をつけたトナカイ" width="96" height="84" loading="lazy">
+                <img class="step-photo" src="assets/recipe/step-7.webp" alt="赤い鼻をつけたトナカイ" width="96" height="84">
                 <div class="voice-box">
                   <p>Place a red chocolate for a nose. It looks Rudolph!</p>
                   <p>赤いチョコで鼻を作ると…赤鼻のトナカイだ！</p>
@@ -639,9 +643,9 @@
         <h2>紙に印刷すると<br>遊びがひろがります</h2>
         <p>レシピを見ながらつくる。ワードカードを切って遊ぶ。カウントゲームに書き込む。おうちに合う使い方を選んでください。</p>
         <ul class="print-sample">
-          <li><img src="assets/pdf-thumbs/page-002.webp" alt="印刷用PDFのレシピのページ" width="520" height="735" loading="lazy"></li>
-          <li><img src="assets/pdf-thumbs/page-006.webp" alt="印刷用PDFの英単語カードのページ" width="520" height="735" loading="lazy"></li>
-          <li><img src="assets/pdf-thumbs/page-008.webp" alt="印刷用PDFのカウントゲームのページ" width="520" height="735" loading="lazy"></li>
+          <li><img src="assets/pdf-thumbs/page-002.webp" alt="印刷用PDFのレシピのページ" width="520" height="735"></li>
+          <li><img src="assets/pdf-thumbs/page-006.webp" alt="印刷用PDFの英単語カードのページ" width="520" height="735"></li>
+          <li><img src="assets/pdf-thumbs/page-008.webp" alt="印刷用PDFのカウントゲームのページ" width="520" height="735"></li>
         </ul>
         <p class="print-sample-note">印刷するとこんな紙になります。A4サイズで<span style="white-space:nowrap">全9ページ</span>です。</p>
         <a class="btn" href="https://drive.google.com/file/d/1FIVM52TUryKrjlWNY06_da8K8h5WV_H0/view?usp=sharing" target="_blank" rel="noopener">印刷用PDFを開く</a>
