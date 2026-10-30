@@ -373,8 +373,10 @@
       .word-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
       .word-card { min-height: 150px; }
       .word-card__picture { height: 112px; }
-      .count-demo { grid-template-columns: 1.15fr .85fr; align-items: start; }
-      .count-stage { top: 16px; margin-inline: 0; background: transparent; }
+      .count-stage { position: static; width: min(100%, 680px); margin-inline: auto; background: transparent; }
+      .count-note > p:first-child { text-align: center; }
+      .count-targets-title { text-align: center; }
+      .count-targets { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       .count-picture { border: 2px solid var(--ink); }
       .count-zoom { margin-inline: 0; }
       .paper-card--steps { margin-inline: 0; padding: 24px; }
