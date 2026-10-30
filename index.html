@@ -136,24 +136,12 @@
       opacity: .9;
       pointer-events: none;
     }
-    .hero__inner { position: relative; z-index: 1; padding-block: 56px 144px; }
+    .hero__inner { position: relative; z-index: 1; padding-block: 0 144px; }
+    .hero__visual { margin: 0 -24px 32px; }
+    .hero__visual img { display: block; width: 100%; height: auto; }
     .hero__copy { max-width: 610px; }
-    .hero__title-small { display: block; margin-bottom: 4px; color: var(--red); font-size: 18px; }
     .hero__lead { max-width: 560px; margin-bottom: 28px; }
     .hero__buttons { display: flex; flex-wrap: wrap; gap: 14px; }
-    .hero__art { position: relative; width: 236px; height: 176px; margin: 32px auto 0; }
-    .hero__art svg { width: 100%; height: 100%; overflow: visible; }
-    .hero__note {
-      position: absolute;
-      right: 0;
-      bottom: 2px;
-      padding: 6px 12px;
-      border: 1.5px solid var(--ink);
-      background: var(--cream);
-      font-family: "Caveat", cursive;
-      font-size: 20px;
-      transform: rotate(-3deg);
-    }
 
     .choose-intro { max-width: 650px; }
     .choose-grid { display: grid; gap: 20px; margin-top: 30px; }
@@ -357,8 +345,8 @@
       h3 { font-size: 20px; }
       .section { padding-block: 64px; }
       .inner { padding-inline: 40px; }
-      .hero__inner { display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: center; padding-block: 72px 152px; }
-      .hero__art { width: 300px; height: 224px; margin: 0; }
+      .hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 56px 152px; }
+      .hero__visual { margin: 0; }
       .choose-grid { grid-template-columns: repeat(3, 1fr); }
       .recipe-layout { grid-template-columns: .8fr 1.2fr; align-items: start; }
       .movie-box { grid-template-columns: 1.1fr .9fr; align-items: center; }
@@ -381,28 +369,14 @@
 <body>
   <header class="hero">
     <div class="hero__inner inner">
+      <h1 class="hero__visual"><img src="assets/hero/hero-oyako-box.webp" alt="2026年版　季節を楽しもう　親子deクリスマス満喫BOX。トコさんと子どもがプレゼントボックスをのぞいて笑っている絵" width="1080" height="1350" decoding="async" fetchpriority="high"></h1>
       <div class="hero__copy">
         <p class="eyebrow">Christmas at home</p>
-        <h1><span class="hero__title-small">2026年版　季節を楽しもう</span>親子deクリスマス<br>満喫BOX</h1>
         <p class="hero__lead">つくって、声に出して、さがしてみる。おうちのクリスマスが、親子の英語時間になるミニボックスです。</p>
         <div class="hero__buttons">
           <a class="btn" href="#choose">中身を見てみる</a>
           <a class="btn btn--paper" href="https://drive.google.com/file/d/1FIVM52TUryKrjlWNY06_da8K8h5WV_H0/view?usp=sharing" target="_blank" rel="noopener">印刷用PDFを開く</a>
         </div>
-      </div>
-      <div class="hero__art" aria-hidden="true">
-        <svg viewBox="0 0 300 224" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M45 194C82 181 111 187 151 188C197 189 225 178 267 190" stroke="#353a32" stroke-width="3" stroke-linecap="round"/>
-          <path d="M93 183V88L151 51L209 88V183" fill="#fffdf7" stroke="#353a32" stroke-width="3" stroke-linejoin="round"/>
-          <path d="M80 93L151 45L222 93" stroke="#9e3e37" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M114 183V132H145V183M170 105H192V130H170z" stroke="#315b48" stroke-width="3"/>
-          <path d="M61 112C66 88 72 73 85 58M47 93C62 91 72 86 83 76M67 76C76 79 82 79 90 77" stroke="#315b48" stroke-width="4" stroke-linecap="round"/>
-          <path d="M240 151C236 119 245 92 258 71M228 128C239 125 247 119 253 111M242 103C250 106 257 105 263 101" stroke="#315b48" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="45" cy="51" r="18" fill="#c79e43" fill-opacity=".45"/>
-          <path d="M39 51H51M45 45V57M36 42L54 60M54 42L36 60" stroke="#9e3e37" stroke-width="2" stroke-linecap="round"/>
-          <path d="M251 32C254 43 263 48 273 50C263 53 256 60 253 71C250 60 243 54 232 51C243 47 249 42 251 32Z" stroke="#353a32" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
-        <span class="hero__note">make, learn, play</span>
       </div>
     </div>
   </header>
