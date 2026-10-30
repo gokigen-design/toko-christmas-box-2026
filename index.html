@@ -59,25 +59,28 @@
     .section--cream { background: var(--cream); }
     .section--green { background: #edf1e7; }
     .section--red { background: #f4e8df; }
-    .section--decorated { overflow: hidden; padding-top: 112px; }
+    .section--decorated { padding-top: 124px; }
     .section--decorated::before {
       position: absolute;
       top: 0;
       left: 50%;
-      width: min(1100px, 118%);
+      width: min(760px, 100%);
       height: 112px;
       background: url("assets/chappy/christmas-watercolor-border.webp") center 49% / contain no-repeat;
       content: "";
       pointer-events: none;
       transform: translateX(-50%);
     }
+    .section--decorated .eyebrow, .section--decorated .section-title, .section-lead { text-align: center; }
+    .section-lead { max-width: 650px; margin-inline: auto; }
     .section-title { position: relative; padding-bottom: 20px; }
     .section-title::after {
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: 50%;
       width: 92px;
       height: 8px;
+      transform: translateX(-50%);
       background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='8' viewBox='0 0 92 8'%3E%3Cpath d='M1 5C18 1 29 7 45 4S72 1 91 4' fill='none' stroke='%239e3e37' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
       content: "";
     }
@@ -125,43 +128,38 @@
         radial-gradient(circle at 86% 78%, rgb(49 91 72 / 14%) 0 12%, transparent 27%),
         linear-gradient(180deg, #fbf7ed 0%, #f8eddc 100%);
     }
-    .hero::after {
-      position: absolute;
-      right: 0;
-      bottom: -12px;
-      left: 0;
-      height: 128px;
-      background: url("assets/chappy/christmas-watercolor-border.webp") center bottom / min(1100px, 120%) auto no-repeat;
-      content: "";
-      opacity: .9;
-      pointer-events: none;
-    }
-    .hero__inner { position: relative; z-index: 1; padding-block: 0 144px; }
-    .hero__visual { margin: 0 -24px 32px; }
+    .hero__inner { position: relative; z-index: 1; padding-block: 0 18px; }
+    .hero__visual { margin: 0 -24px 12px; }
     .hero__visual img { display: block; width: 100%; height: auto; }
-    .hero__copy { max-width: 610px; }
-    .hero__lead { max-width: 560px; margin-bottom: 28px; }
-    .hero__buttons { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero__copy { margin-inline: -8px; text-align: center; }
+    .hero__copy .eyebrow { margin-bottom: 2px; }
+    .hero__lead { margin-bottom: 0; }
 
-    .choose-intro { max-width: 650px; }
-    .choose-grid { display: grid; gap: 20px; margin-top: 30px; }
+    .choose-grid { display: grid; gap: 12px; margin-top: 20px; }
     .choose-card {
+      --card-color: var(--red);
       position: relative;
-      display: block;
-      min-height: 215px;
-      padding: 0 24px 24px;
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 10px 10px 8px 6px;
       border: 2px solid var(--ink);
+      border-bottom: 7px solid var(--card-color);
       color: inherit;
-      background: var(--cream);
+      background: #fff8f3;
       text-decoration: none;
+      transition: transform .12s ease;
     }
-    .choose-card:nth-child(1) { border-top: 10px solid var(--red); background: #fff8f3; }
-    .choose-card:nth-child(2) { border-top: 10px solid var(--green); background: #f4f8f1; }
-    .choose-card:nth-child(3) { border-top: 10px solid var(--navy); background: #f2f3f7; }
-    .choose-card__art { display: block; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 4 / 3; margin: 0 -24px 6px; object-fit: cover; mix-blend-mode: multiply; }
-    .choose-card__number { display: block; margin-bottom: 10px; color: var(--red); font-family: "Caveat", cursive; font-size: 25px; line-height: 1; }
-    .choose-card p { margin-bottom: 0; }
-    .choose-card__line { width: 58px; height: 2px; margin-block: 16px; background: var(--line); transform: rotate(-2deg); }
+    .choose-card:nth-child(2) { --card-color: var(--green); background: #f4f8f1; }
+    .choose-card:nth-child(3) { --card-color: var(--navy); background: #f2f3f7; }
+    .choose-card:hover, .choose-card:active { transform: translateY(3px); }
+    .choose-card__art { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; mix-blend-mode: multiply; transform: scale(1.18); }
+    .choose-card__number { position: absolute; top: 0; left: 0; z-index: 1; padding: 2px 10px; color: var(--cream); background: var(--card-color); font-family: "Caveat", cursive; font-size: 19px; line-height: 1.2; }
+    .choose-card h3 { margin-bottom: 2px; }
+    .choose-card p { margin-bottom: 4px; }
+    .choose-card__go { display: flex; align-items: center; justify-content: flex-end; gap: 6px; color: var(--card-color); font-weight: 700; }
+    .choose-card__go::after { width: 14px; height: 16px; background: currentColor; clip-path: polygon(0 0, 100% 50%, 0 100%); content: ""; }
 
     .recipe-layout { display: grid; gap: 24px; }
     .recipe-heading { margin-bottom: 24px; }
@@ -202,6 +200,7 @@
     .movie-copy p:last-child { margin-bottom: 0; }
     .movie-status { color: var(--red); font-weight: 700; }
     .paper-card { padding: 24px; border: 2px solid var(--line); background: var(--cream); }
+    .paper-card--steps { margin-inline: -8px; padding: 20px 14px; }
     .paper-card h3 { display: flex; align-items: center; gap: 10px; }
     .paper-card h3::before { width: 22px; height: 2px; background: var(--red); content: ""; }
     .ingredient-group + .ingredient-group { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgb(89 98 87 / 45%); }
@@ -213,54 +212,65 @@
     .steps { display: grid; gap: 0; margin-bottom: 0; padding: 0; list-style: none; counter-reset: step; }
     .steps li {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 96px;
-      gap: 14px 16px;
-      align-items: start;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
       padding-block: 20px;
       border-bottom: 1px solid rgb(89 98 87 / 45%);
       counter-increment: step;
     }
     .steps li:first-child { padding-top: 4px; }
     .steps li:last-child { padding-bottom: 0; border-bottom: 0; }
-    .step-text { margin: 0; }
-    .step-text::before {
+    .steps li::before {
+      z-index: 1;
+      grid-area: 1 / 1;
       display: grid;
-      width: 42px;
-      height: 42px;
-      margin-bottom: 10px;
+      width: 32px;
+      height: 32px;
       place-items: center;
-      border: 1.5px solid var(--green);
-      color: var(--green);
+      place-self: start;
+      color: var(--cream);
+      background: var(--green);
       font-family: "Caveat", cursive;
-      font-size: 23px;
+      font-size: 21px;
       line-height: 1;
       content: counter(step, decimal-leading-zero);
-      transform: rotate(-2deg);
     }
-    .step-photo { width: 96px; height: 84px; object-fit: cover; border: 1px solid var(--line); background: #fff; }
+    .step-text { grid-area: 1 / 2; margin: 0; }
+    .step-photo { grid-area: 1 / 1; width: 96px; height: 84px; object-fit: cover; border: 1px solid var(--line); background: #fff; }
     .step-photo--contain { object-fit: contain; }
-    .voice-box { grid-column: 1 / -1; padding: 14px 16px; border-left: 6px solid var(--mustard); background: var(--paper); }
+    .voice-box { grid-column: 1 / -1; padding: 14px 16px; color: var(--cream); background: var(--green); }
     .voice-box p { margin-bottom: 4px; }
-    .voice-box p:last-child { margin-bottom: 0; color: var(--red); font-weight: 500; }
+    .voice-box p:first-child { font-size: 18px; font-weight: 700; line-height: 1.6; }
+    .voice-box p:last-child { margin-bottom: 0; line-height: 1.7; }
     .safety-note { margin-bottom: 24px; padding: 20px; border: 2px solid var(--red); background: var(--cream); }
     .safety-note strong { display: block; margin-bottom: 6px; color: var(--red); font-family: "Shippori Mincho", serif; font-size: 18px; }
 
-    .word-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+    .word-grid { padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
     .word-card {
+      --card-color: var(--red);
+      width: 100%;
       min-height: 120px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 16px 10px;
+      padding: 16px 10px 12px;
       border: 1.5px solid var(--ink);
-      background: var(--cream);
+      border-top: 9px solid var(--card-color);
+      border-bottom-width: 5px;
+      color: inherit;
+      background: #fff8f3;
+      font: inherit;
       text-align: center;
+      cursor: pointer;
+      transition: transform .12s ease;
     }
-    .word-card:nth-child(4n + 1) { border-top: 9px solid var(--red); background: #fff8f3; }
-    .word-card:nth-child(4n + 2) { border-top: 9px solid var(--mustard); background: #fffaf0; }
-    .word-card:nth-child(4n + 3) { border-top: 9px solid var(--green); background: #f3f7ef; }
-    .word-card:nth-child(4n + 4) { border-top: 9px solid var(--navy); background: #f1f2f6; }
+    .word-card:hover, .word-card:active { transform: translateY(2px); }
+    li:nth-child(4n + 2) > .word-card { --card-color: var(--mustard); background: #fffaf0; }
+    li:nth-child(4n + 3) > .word-card { --card-color: var(--green); background: #f3f7ef; }
+    li:nth-child(4n + 4) > .word-card { --card-color: var(--navy); background: #f1f2f6; }
     .word-card__picture {
+      display: block;
       width: 100%;
       height: 92px;
       margin: 0 auto 12px;
@@ -276,7 +286,9 @@
     .word-card__picture--candy { background-image: url("assets/word-cards/candy.webp"); }
     .word-card__picture--bow { background-image: url("assets/word-cards/bow.webp"); }
     .word-card__picture--lights { background-image: url("assets/word-cards/lights.webp"); }
-    .word-card span { display: block; color: var(--green); font-family: "Caveat", cursive; font-size: 22px; line-height: 1.25; }
+    .word-card__word { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--green); font-family: "Caveat", cursive; font-size: 22px; line-height: 1.25; }
+    .word-card__word::before { flex: none; width: 24px; height: 24px; background: var(--card-color); clip-path: polygon(14% 4%, 96% 50%, 14% 96%); content: ""; }
+    .word-card.is-playing .word-card__word::before { clip-path: none; }
 
     .count-demo { display: grid; gap: 24px; margin-top: 28px; }
     .count-stage {
@@ -344,10 +356,14 @@
       h2 { font-size: 30px; }
       h3 { font-size: 20px; }
       .section { padding-block: 64px; }
+      .section--decorated { padding-top: 132px; }
       .inner { padding-inline: 40px; }
-      .hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 56px 152px; }
+      .hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; padding-block: 56px; }
       .hero__visual { margin: 0; }
-      .choose-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero__copy { margin-inline: 0; }
+      .choose-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .choose-card { display: block; padding: 0 20px 16px; }
+      .choose-card__art { margin-bottom: 6px; transform: none; }
       .recipe-layout { grid-template-columns: .8fr 1.2fr; align-items: start; }
       .movie-box { grid-template-columns: 1.1fr .9fr; align-items: center; }
       .word-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
@@ -372,52 +388,54 @@
       <h1 class="hero__visual"><img src="assets/hero/hero-oyako-box.webp" alt="2026年版　季節を楽しもう　親子deクリスマス満喫BOX。トコさんと子どもがプレゼントボックスをのぞいて笑っている絵" width="1080" height="1350" decoding="async" fetchpriority="high"></h1>
       <div class="hero__copy">
         <p class="eyebrow">Christmas at home</p>
-        <p class="hero__lead">つくって、声に出して、さがしてみる。おうちのクリスマスが、親子の英語時間になるミニボックスです。</p>
-        <div class="hero__buttons">
-          <a class="btn" href="#choose">中身を見てみる</a>
-          <a class="btn btn--paper" href="https://drive.google.com/file/d/1FIVM52TUryKrjlWNY06_da8K8h5WV_H0/view?usp=sharing" target="_blank" rel="noopener">印刷用PDFを開く</a>
-        </div>
+        <p class="hero__lead">つくって、声に出して、さがしてみる。<br>おうちのクリスマスが、親子の英語時間になる<br>ミニボックスです。</p>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section section--cream" id="choose">
+    <section class="section section--cream section--decorated" id="choose">
       <div class="inner">
         <p class="eyebrow">Three little gifts</p>
         <h2 class="section-title">今日はどれを1つ開けよう</h2>
-        <p class="choose-intro">全部やらなくても大丈夫です。お子さんが気になった扉から、ちょっとだけ開けてみてください。</p>
+        <p class="section-lead">全部やらなくても大丈夫です。お子さんが気になった扉から、ちょっとだけ開けてみてください。</p>
         <div class="choose-grid">
           <a class="choose-card" href="#make">
             <img class="choose-card__art" src="assets/choose-art/card-make.webp" alt="マシュマロとチョコでつくったトナカイと、ボウルやスプーンの絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">01 make</span>
-            <h3>トナカイおやつ</h3>
-            <div class="choose-card__line"></div>
-            <p>マシュマロとチョコで、かわいいトナカイをつくります。</p>
+            <div class="choose-card__body">
+              <h3>トナカイおやつ</h3>
+              <p>マシュマロとチョコで、かわいいトナカイをつくります。</p>
+              <span class="choose-card__go">見てみる</span>
+            </div>
           </a>
           <a class="choose-card" href="#words">
             <img class="choose-card__art" src="assets/choose-art/card-words.webp" alt="ABCの積み木をサンタさんが指さしている絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">02 learn</span>
-            <h3>クリスマス英単語</h3>
-            <div class="choose-card__line"></div>
-            <p>絵を見ながら、クリスマスのことばを声に出します。</p>
+            <div class="choose-card__body">
+              <h3>クリスマス英単語</h3>
+              <p>絵を見ながら、クリスマスのことばを声に出します。</p>
+              <span class="choose-card__go">見てみる</span>
+            </div>
           </a>
           <a class="choose-card" href="#count">
             <img class="choose-card__art" src="assets/choose-art/card-count.webp" alt="クリスマスの絵の中から、子どもの指が星を見つけている絵" width="900" height="675" decoding="async">
             <span class="choose-card__number">03 play</span>
-            <h3>いくつあるかな</h3>
-            <div class="choose-card__line"></div>
-            <p>クリスマスの絵をさがして、英語で数えてみます。</p>
+            <div class="choose-card__body">
+              <h3>いくつあるかな</h3>
+              <p>クリスマスの絵をさがして、英語で数えてみます。</p>
+              <span class="choose-card__go">見てみる</span>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section section--red" id="make">
+    <section class="section section--red section--decorated" id="make">
       <div class="inner">
         <p class="eyebrow">Let's make it together</p>
         <div class="recipe-heading">
-          <h2 class="section-title">チョコレートトナカイをつくろう</h2>
+          <h2 class="section-title">チョコトナカイをつくろう</h2>
         </div>
         <div class="safety-note">
           <strong>おうちの方へ</strong>
@@ -454,7 +472,7 @@
               </ul>
             </div>
           </div>
-          <div class="paper-card">
+          <div class="paper-card paper-card--steps">
             <h3>つくり方</h3>
             <ol class="steps">
               <li>
@@ -523,21 +541,21 @@
       <div class="inner">
         <p class="eyebrow">Christmas word cards</p>
         <h2 class="section-title">絵といっしょに<br>ことばをおぼえよう</h2>
-        <p>おうちの中で見つけたら、カードと同じ英語を声に出してみてください。ここでは16語のうち8語をご紹介。すべての言葉は印刷用PDFで楽しめます。</p>
-        <div class="word-grid">
-          <div class="word-card"><div class="word-card__picture word-card__picture--santa" role="img" aria-label="サンタクロース"></div><span>Santa Claus</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--star" role="img" aria-label="星"></div><span>Star</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--reindeer" role="img" aria-label="トナカイ"></div><span>Reindeer</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--stocking" role="img" aria-label="クリスマスの靴下"></div><span>Stocking</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--snowflakes" role="img" aria-label="雪の結晶"></div><span>Snowflakes</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--candy" role="img" aria-label="キャンディケイン"></div><span>Candy cane</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--bow" role="img" aria-label="リボン"></div><span>Bow</span></div>
-          <div class="word-card"><div class="word-card__picture word-card__picture--lights" role="img" aria-label="クリスマスライト"></div><span>Lights</span></div>
-        </div>
+        <p class="section-lead">おうちの中で見つけたら、カードと同じ英語を声に出してみてください。ここでは16語のうち8語をご紹介。すべての言葉は印刷用PDFで楽しめます。</p>
+        <ul class="word-grid">
+          <li><button class="word-card" type="button" data-audio="assets/audio/santa.mp3" aria-label="Santa Clausの音声を再生"><span class="word-card__picture word-card__picture--santa" role="img" aria-label="サンタクロース"></span><span class="word-card__word">Santa Claus</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/star.mp3" aria-label="Starの音声を再生"><span class="word-card__picture word-card__picture--star" role="img" aria-label="星"></span><span class="word-card__word">Star</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/reindeer.mp3" aria-label="Reindeerの音声を再生"><span class="word-card__picture word-card__picture--reindeer" role="img" aria-label="トナカイ"></span><span class="word-card__word">Reindeer</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/stocking.mp3" aria-label="Stockingの音声を再生"><span class="word-card__picture word-card__picture--stocking" role="img" aria-label="クリスマスの靴下"></span><span class="word-card__word">Stocking</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/snowflakes.mp3" aria-label="Snowflakesの音声を再生"><span class="word-card__picture word-card__picture--snowflakes" role="img" aria-label="雪の結晶"></span><span class="word-card__word">Snowflakes</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/candy.mp3" aria-label="Candy caneの音声を再生"><span class="word-card__picture word-card__picture--candy" role="img" aria-label="キャンディケイン"></span><span class="word-card__word">Candy cane</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/bow.mp3" aria-label="Bowの音声を再生"><span class="word-card__picture word-card__picture--bow" role="img" aria-label="リボン"></span><span class="word-card__word">Bow</span></button></li>
+          <li><button class="word-card" type="button" data-audio="assets/audio/lights.mp3" aria-label="Lightsの音声を再生"><span class="word-card__picture word-card__picture--lights" role="img" aria-label="クリスマスライト"></span><span class="word-card__word">Lights</span></button></li>
+        </ul>
       </div>
     </section>
 
-    <section class="section section--green" id="count">
+    <section class="section section--green section--decorated" id="count">
       <div class="inner">
         <p class="eyebrow">Can you count them?</p>
         <h2 class="section-title">クリスマスの絵を<br>いくつ見つけられるかな</h2>
@@ -629,6 +647,22 @@
 
   <footer class="footer"><p>親子deクリスマス満喫BOX　2026</p></footer>
   <script>
+    var wordVoice = new Audio();
+    var playingCard = null;
+    function clearPlaying() {
+      if (playingCard) playingCard.classList.remove('is-playing');
+      playingCard = null;
+    }
+    wordVoice.addEventListener('ended', clearPlaying);
+    document.querySelectorAll('.word-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        clearPlaying();
+        wordVoice.src = card.dataset.audio;
+        wordVoice.play();
+        playingCard = card;
+        card.classList.add('is-playing');
+      });
+    });
     document.querySelectorAll('.counter').forEach(function (counter) {
       var out = counter.querySelector('output');
       counter.addEventListener('click', function (e) {
