@@ -290,6 +290,8 @@
     .word-card__word { display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; color: var(--green); font-family: "Caveat", cursive; font-size: 22px; line-height: 1.25; }
     .word-card__word::before { flex: none; width: 16px; height: 18px; background: var(--card-color); clip-path: polygon(14% 4%, 96% 50%, 14% 96%); content: ""; }
     .word-card.is-playing .word-card__word::before { clip-path: none; }
+    .word-card__sound { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0 20px; color: var(--green); font-weight: 700; }
+    .word-card__sound svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
     .count-demo { display: grid; gap: 24px; margin-top: 28px; }
     .count-stage {
@@ -549,6 +551,7 @@
         <p class="eyebrow">Christmas word cards</p>
         <h2 class="section-title">絵といっしょに<br>ことばをおぼえよう</h2>
         <p class="section-lead">おうちの中で見つけたら、カードと同じ英語を声に出してみてください。ここでは16語のうち8語をご紹介。すべての言葉は印刷用PDFで楽しめます。</p>
+        <p class="word-card__sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h4l5 4V6l-5 4H5Z"/><path d="M17 9c1 1 1.5 2 1.5 3S18 14 17 15"/></svg>カードをタップすると音が出ます</p>
         <ul class="word-grid">
           <li><button class="word-card" type="button" data-audio="assets/audio/santa.mp3" aria-label="Santa Clausの音声を再生"><span class="word-card__picture word-card__picture--santa" role="img" aria-label="サンタクロース"></span><span class="word-card__word">Santa Claus</span></button></li>
           <li><button class="word-card" type="button" data-audio="assets/audio/star.mp3" aria-label="Starの音声を再生"><span class="word-card__picture word-card__picture--star" role="img" aria-label="星"></span><span class="word-card__word">Star</span></button></li>
@@ -652,7 +655,10 @@
     </section>
   </main>
 
-  <footer class="footer"><p>親子deクリスマス満喫BOX　2026</p></footer>
+  <footer class="footer">
+    <p>親子deクリスマス満喫BOX　2026</p>
+    <p>© Read &amp; Talk 2026　無断転載・複製を禁じます。</p>
+  </footer>
   <script>
     var wordVoice = new Audio();
     var playingCard = null;
