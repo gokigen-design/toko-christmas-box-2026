@@ -338,6 +338,34 @@
     .counter button:last-child { color: var(--cream); background: var(--green); }
     .counter output { min-width: 26px; color: var(--red); font-size: 20px; font-weight: 700; text-align: center; font-variant-numeric: tabular-nums; }
     .count-reset { display: block; margin: -12px 0 24px auto; padding: 6px 2px; border: 0; color: var(--ink); background: none; font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; }
+    .count-check {
+      display: block;
+      width: 100%;
+      min-height: 56px;
+      margin: 0 0 14px;
+      border: 2px solid var(--ink);
+      border-radius: 0;
+      color: var(--cream);
+      background: var(--red);
+      font: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .count-result {
+      display: none;
+      margin: 0 0 24px;
+      padding: 16px;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      background: var(--cream);
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .count-result.is-visible { display: block; }
+    .count-result.is-correct { color: var(--green); }
+    .count-result.is-try-again { color: var(--red); }
     .count-question { padding: 20px; border: 2px solid var(--ink); background: var(--cream); }
     .count-question strong { display: block; color: var(--red); font-family: "Caveat", cursive; font-size: 24px; line-height: 1.4; }
     .count-question span { display: block; margin-top: 6px; }
@@ -578,58 +606,60 @@
             <p>サンタとトナカイ。リボンと星。見つけたら、指をさしながら数えます。</p>
             <h3 class="count-targets-title">さがすのは この10こ</h3>
             <ul class="count-targets">
-              <li class="count-target">
+              <li class="count-target" data-answer="1">
                 <img src="assets/count-targets/santa.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Santa Claus</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="サンタクロースをひとつ減らす">−</button><output aria-label="サンタクロースの数">0</output><button type="button" data-step="1" aria-label="サンタクロースをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="9">
                 <img src="assets/count-targets/elf.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Elf</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="エルフをひとつ減らす">−</button><output aria-label="エルフの数">0</output><button type="button" data-step="1" aria-label="エルフをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="10">
                 <img src="assets/count-targets/snowman.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Snowman</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="雪だるまをひとつ減らす">−</button><output aria-label="雪だるまの数">0</output><button type="button" data-step="1" aria-label="雪だるまをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="4">
                 <img src="assets/count-targets/gingerbread.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Gingerbread man</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="ジンジャーブレッドマンをひとつ減らす">−</button><output aria-label="ジンジャーブレッドマンの数">0</output><button type="button" data-step="1" aria-label="ジンジャーブレッドマンをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="6">
                 <img src="assets/count-targets/reindeer.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Reindeer</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="トナカイをひとつ減らす">−</button><output aria-label="トナカイの数">0</output><button type="button" data-step="1" aria-label="トナカイをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="3">
                 <img src="assets/count-targets/stocking.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Stocking</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="クリスマスの靴下をひとつ減らす">−</button><output aria-label="クリスマスの靴下の数">0</output><button type="button" data-step="1" aria-label="クリスマスの靴下をひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="2">
                 <img src="assets/count-targets/bell.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Bell</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="ベルをひとつ減らす">−</button><output aria-label="ベルの数">0</output><button type="button" data-step="1" aria-label="ベルをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="8">
                 <img src="assets/count-targets/candy.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Candy cane</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="キャンディケインをひとつ減らす">−</button><output aria-label="キャンディケインの数">0</output><button type="button" data-step="1" aria-label="キャンディケインをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="7">
                 <img src="assets/count-targets/bow.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Bow</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="リボンをひとつ減らす">−</button><output aria-label="リボンの数">0</output><button type="button" data-step="1" aria-label="リボンをひとつ増やす">+</button></span>
               </li>
-              <li class="count-target">
+              <li class="count-target" data-answer="5">
                 <img src="assets/count-targets/star.webp" alt="" width="52" height="56">
                 <span class="count-target__word">Star</span>
                 <span class="counter"><button type="button" data-step="-1" aria-label="星をひとつ減らす">−</button><output aria-label="星の数">0</output><button type="button" data-step="1" aria-label="星をひとつ増やす">+</button></span>
               </li>
             </ul>
             <button class="count-reset" type="button">数を0にもどす</button>
+            <button class="count-check" type="button">答えを確認する</button>
+            <p class="count-result" role="status" aria-live="polite"></p>
             <div class="count-question">
               <strong>How many ○○ are there? You look like a detective!</strong>
               <span>○○は、何個あるかな？ 探偵さんみたいだね！</span>
@@ -686,6 +716,25 @@
     });
     document.querySelector('.count-reset').addEventListener('click', function () {
       document.querySelectorAll('.counter output').forEach(function (o) { o.value = 0; });
+      var result = document.querySelector('.count-result');
+      result.textContent = '';
+      result.className = 'count-result';
+    });
+    document.querySelector('.count-check').addEventListener('click', function () {
+      var isCorrect = Array.from(document.querySelectorAll('.count-target')).every(function (target) {
+        return Number(target.querySelector('output').value) === Number(target.dataset.answer);
+      });
+      var result = document.querySelector('.count-result');
+      var message = isCorrect ? "You're right! 全部見つけられました。" : 'Try again! もう一度、絵をよく見てみよう。';
+      result.textContent = message;
+      result.className = 'count-result is-visible ' + (isCorrect ? 'is-correct' : 'is-try-again');
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        var voiceMessage = new SpeechSynthesisUtterance(isCorrect ? "You're right!" : 'Try again!');
+        voiceMessage.lang = 'en-US';
+        voiceMessage.rate = 0.85;
+        window.speechSynthesis.speak(voiceMessage);
+      }
     });
   </script>
 </body>
