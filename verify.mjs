@@ -16,6 +16,7 @@ assert(html.includes('Try again!'), '不正解時の英語メッセージがあ�
 assert(html.includes('speechSynthesis'), '答え合わせ音声の再生処理がありません');
 assert((html.match(/data-answer="/g) || []).length === 10, 'カウントゲームの正解数が10件ではありません');
 assert(html.includes('© Read &amp; Talk 2026'), '著作権表記がありません');
+assert(html.includes('assets/clean-crops/recipe-photo-generated.webp'), '生成したチョコトナカイ画像が使われていません');
 assert(html.includes('無断転載・複製を禁じます'), '複製禁止表記がありません');
 assert(!html.includes('Read &amp; Talk 2025') && !html.includes('Read & Talk 2025'), '2025表記が残っています');
 assert(!html.includes('box-shadow:'), 'box-shadowを使っています');
