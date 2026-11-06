@@ -31,6 +31,8 @@
 - 元画像は加工していない
 - クッキング動画は仮枠。動画URL共有後に差し替え
 - クッキング完成写真は、元の低解像度写真を参考に新規生成した `assets/clean-crops/recipe-photo-generated.webp` へ差し替え。竹串は自然な細さで表現
+- クッキング手順5〜7は、同じ完成写真を基準にした高解像度の工程画像へ差し替え
+- 印刷用PDFは、2026年版の `assets/downloads/christmas-special-box-2026.pdf` へ差し替え。サイト内のプレビュー3枚も同じPDFから更新
 - `assets/word-icons/` に英単語カード用の個別切り抜きを保存
 - `assets/clean-crops/` にレシピ写真とカウントゲームの枠なし切り抜きを保存
 
